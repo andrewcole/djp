@@ -54,7 +54,7 @@ class Position:
 
 
 def installed_apps() -> List[str]:
-    return ["djp"] + list(itertools.chain(*pm.hook.installed_apps()))
+    return list(dict.fromkeys(["djp"] + list(itertools.chain(*pm.hook.installed_apps()))))
 
 
 def middleware(current_middleware: List[str]):
